@@ -1,0 +1,27 @@
+{
+  "name": "litecommands",
+  "version": "2.1.1",
+  "description": "Easily create a discord bot with lite commands handler",
+  "main": "main.js",
+  "keywords": [
+    "discordjs",
+    "discord",
+    "discordbot"
+  ],
+  "author": "ChaoticVisions",
+  "license": "ISC",
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.6.0",
+    "fs.realpath": "^1.0.0",
+    "util": "0.12.4",
+    "glob": "^7.2.0",
+    "mongodb-connection-string-url": "^2.4.1",
+    "mongodb": "^4.2.2",
+    "mongoose": "^6.1.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
