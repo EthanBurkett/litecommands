@@ -5,7 +5,11 @@ const { Intents } = DiscordJS;
  * @param {DiscordJS.Client} client
  */
 const client = new DiscordJS.Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  intents: [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MESSAGES,
+    Intents.FLAGS.GUILD_MEMBERS,
+  ],
 });
 
 module.exports = (options) => {

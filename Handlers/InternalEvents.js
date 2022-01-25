@@ -126,19 +126,33 @@ module.exports = async (client) => {
         return;
     }
 
-    const reply =
-      Command.execute(object) instanceof Promise
-        ? await Command.execute(object)
-        : Command.execute(object);
+    let reply = Command.execute(object); //Command.execute(object) instanceof Promise ? await Command.execute(object) : Command.execute(object);
+
+    if (reply instanceof Promise) reply = await reply;
 
     if (!reply) {
-      return;
-    } else if (typeof reply === "string") {
-      return message.channel.send({ content: reply });
+      return new Promise((resolve) => {
+        resolve("No reply provided.");
+      });
+    }
+    if (typeof reply === "string") {
+      return message.reply({
+        content: reply,
+      });
     } else if (reply.custom) {
-      return message.channel.send(reply);
-    } else if (typeof reply === "object" && reply.type == "rich") {
-      return message.channel.send({ embeds: [reply] });
+      return message.reply(reply);
+    } else if (reply.type == "rich" || Array.isArray(reply)) {
+      let embeds = [];
+
+      if (Array.isArray(reply)) {
+        embeds = reply;
+      } else {
+        embeds.push(reply);
+      }
+
+      return message.reply({
+        embeds,
+      });
     } else {
       return;
     }

@@ -18,6 +18,10 @@ Client({
 Client.login("Your bot token"); // This can be found when creating a bot application inside the discord developer portal
 ```
 
+## Important Note
+
+### Make sure your bot has guild members intent enabled in the discord developer portal.
+
 ## Advanced Configuration
 
 Now that you've got the basic bot structure, let's get into the more advanced options of initiation the client object.
